@@ -1,4 +1,4 @@
-// common-v3.js - Load sidebar và các tiện ích chung
+// common.js - Load sidebar và các tiện ích chung
 
 function createSidebar() {
     return `
@@ -25,7 +25,7 @@ function createSidebar() {
                     </svg>
                     <span>Quản lý phòng</span>
                 </a>
-                <a href="booking-list-v3.html" class="nav-item" data-page="bookings">
+                <a href="booking-list.html" class="nav-item" data-page="bookings">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                         <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -34,7 +34,7 @@ function createSidebar() {
                     </svg>
                     <span>Thuê phòng</span>
                 </a>
-                <a href="checkout-list-v3.html" class="nav-item" data-page="checkout">
+                <a href="checkout-list.html" class="nav-item" data-page="checkout">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 11l3 3L22 4"></path>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
