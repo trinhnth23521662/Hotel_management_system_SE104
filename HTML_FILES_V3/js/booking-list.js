@@ -1,4 +1,4 @@
-// booking-list-v3.js - Theo DB Schema với View/Edit
+// booking-list.js - Theo DB Schema với View/Edit
 // Hiển thị danh sách phiếu thuê từ THUEPHONG, CTTHUEPHONG, KHACHHANG
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -84,15 +84,15 @@ function renderBookings(filtered = null) {
 }
 
 function createNewBooking() {
-    window.location.href = 'booking-form-v3.html';
+    window.location.href = 'booking-form.html';
 }
 
 function viewBooking(maThuePhong) {
-    window.location.href = `booking-form-v3.html?id=${maThuePhong}&mode=view`;
+    window.location.href = `booking-form.html?id=${maThuePhong}&mode=view`;
 }
 
 function editBooking(maThuePhong) {
-    window.location.href = `booking-form-v3.html?id=${maThuePhong}`;
+    window.location.href = `booking-form.html?id=${maThuePhong}`;
 }
 
 function deleteBooking(maThuePhong) {
