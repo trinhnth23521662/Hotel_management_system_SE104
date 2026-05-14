@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Phòng - Khách sạn Paradise</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/room-management.css">
+</head>
+<body data-page="rooms">
+    <div class="container">
+        <!-- Sidebar Container -->
+        <div id="sidebar-container"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h1>Quản lý Phòng</h1>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-label">Tổng số phòng</span>
+                            <span class="stat-value" id="total-rooms">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Phòng trống</span>
+                            <span class="stat-value" id="available-rooms">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Đang thuê</span>
+                            <span class="stat-value" id="occupied-rooms">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter -->
+                <div class="filter-bar">
+                    <select id="filter-type" class="filter-select">
+                        <option value="">Tất cả loại phòng</option>
+                    </select>
+                    <select id="filter-status" class="filter-select">
+                        <option value="">Tất cả tình trạng</option>
+                        <option value="Trống">Trống</option>
+                        <option value="Đang thuê">Đang thuê</option>
+                        <option value="Bảo trì">Bảo trì</option>
+                    </select>
+                    <input type="text" id="search-room" class="search-input" placeholder="Tìm số phòng...">
+                </div>
+
+                <!-- Room Grid -->
+                <div class="room-grid" id="room-grid">
+                    <!-- Rooms will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Chi tiết phòng -->
+    <div id="room-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Chi tiết Phòng <span id="modal-room-number"></span></h2>
+                <button class="btn-close" onclick="closeRoomModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="room-detail">
+                    <div class="detail-row">
+                        <span class="label">Loại phòng:</span>
+                        <span class="value" id="modal-room-type"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Đơn giá:</span>
+                        <span class="value" id="modal-room-price"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Tình trạng:</span>
+                        <select id="modal-room-status" class="form-select">
+                            <option value="Trống">Trống</option>
+                            <option value="Đang thuê">Đang thuê</option>
+                            <option value="Bảo trì">Bảo trì</option>
+                        </select>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Ghi chú:</span>
+                        <textarea id="modal-room-note" class="form-textarea" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeRoomModal()">Hủy</button>
+                <button class="btn-primary" onclick="saveRoomChanges()">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data-structure.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/room-management.js"></script>
+</body>
+</html>

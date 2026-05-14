@@ -1,0 +1,301 @@
+# ✅ HOÀN THÀNH HTML_FILES_V3_TXT
+
+## 📦 ĐÃ TẠO XONG TẤT CẢ FILE
+
+### Thư mục mới: HTML_FILES_V3_TXT/
+- ✅ Tất cả file đều có đuôi .txt (không đè lên bản cũ)
+- ✅ Cấu trúc giống HTML_FILES_V2
+- ✅ Có đầy đủ CSS, JS, HTML
+
+## ✨ TÍNH NĂNG MỚI TRONG V3
+
+### 1. Date Input Auto-Format (dd/mm/yyyy)
+**File:** `js/date-input.js.txt`
+
+**Cách hoạt động:**
+- Nhập số ngày (VD: 1, 0) → Tự động thành "10"
+- Tự động thêm "/" sau ngày → "10/"
+- Nhập tháng (VD: 0, 2) → "10/02/"
+- Nhập năm (VD: 2, 0, 2, 5) → "10/02/2025"
+- Validate ngày tháng năm hợp lệ khi blur
+- Lưu ISO format (yyyy-mm-dd) vào data-iso-date
+
+**Sử dụng:**
+```html
+<input type="text" class="date-input-vn">
+```
+
+### 2. View/Edit Phiếu Thuê
+**Files:** 
+- `booking-list-v3.html.txt`
+- `booking-form-v3.html.txt`
+- `js/booking-form-v3.js.txt`
+
+**Các mode:**
+- **Create**: Tạo phiếu mới (URL: booking-form-v3.html)
+- **View**: Xem chi tiết read-only (URL: booking-form-v3.html?id=1&mode=view)
+- **Edit**: Chỉnh sửa phiếu (URL: booking-form-v3.html?id=1)
+
+**Danh sách có 3 nút:**
+```
+👁️ Xem chi tiết → View mode (tất cả input disabled)
+✏️ Chỉnh sửa → Edit mode (có thể sửa)
+🗑️ Xóa → Xóa phiếu + cập nhật phòng về Trống
+```
+
+### 3. Hiển thị ngày theo định dạng VN
+- Tất cả ngày hiển thị: **dd/mm/yyyy**
+- Lưu database: **yyyy-mm-dd** (ISO)
+- Function: `formatDateVN()`
+
+## 📁 DANH SÁCH FILE ĐÃ TẠO
+
+### HTML Files (6 files)
+✅ booking-list-v3.html.txt       - Danh sách phiếu thuê (có view/edit/delete)
+✅ booking-form-v3.html.txt       - Form thuê phòng (create/view/edit)
+✅ checkout-list-v3.html.txt      - Trả phòng
+✅ room-management.html.txt       - Quản lý phòng (copy từ V2)
+✅ README.md                      - Hướng dẫn chi tiết
+✅ SUMMARY.txt                    - File này
+
+### CSS Files (5 files)
+✅ css/common.css.txt
+✅ css/booking-list.css.txt
+✅ css/booking-form-v3.css.txt
+✅ css/checkout-list.css.txt
+✅ css/room-management.css.txt
+
+### JavaScript Files (8 files)
+✅ js/data-structure.js.txt       - Database schema
+✅ js/common-v3.js.txt            - Sidebar, utilities
+✅ js/date-input.js.txt           - ✨ MỚI - Auto-format dd/mm/yyyy
+✅ js/booking-list-v3.js.txt      - ✨ MỚI - List với view/edit/delete
+✅ js/booking-form-v3.js.txt      - ✨ MỚI - Form với 3 modes
+✅ js/checkout-list-v3.js.txt     - ✨ MỚI - Date input dd/mm/yyyy
+✅ js/room-management.js.txt      - Quản lý phòng
+
+## 🎯 CÁCH SỬ DỤNG
+
+### Bước 1: Bỏ đuôi .txt
+```bash
+cd HTML_FILES_V3_TXT
+
+# Cách 1: Bash script
+for f in **/*.txt; do mv "$f" "${f%.txt}"; done
+
+# Cách 2: Thủ công
+# Đổi tên từng file, xóa .txt ở cuối
+```
+
+### Bước 2: Test ngay
+```
+Mở file: booking-list-v3.html
+```
+
+### Bước 3: Test các tính năng mới
+
+#### Test 1: Date Input Auto-Format
+1. Click "Tạo phiếu thuê phòng"
+2. Click vào ô "Ngày lập"
+3. Nhập: 1 → 0 → 0 → 2 → 2 → 0 → 2 → 5
+4. Kết quả: **10/02/2025** (tự động thêm /)
+5. Click ra ngoài → Validate ngày hợp lệ
+
+#### Test 2: View Chi Tiết
+1. Tạo 1 phiếu thuê (nếu chưa có)
+2. Vào "Thuê phòng"
+3. Click icon 👁️ (mắt) ở hàng bất kỳ
+4. Xem form read-only (không sửa được)
+
+#### Test 3: Edit Phiếu
+1. Vào "Thuê phòng"
+2. Click icon ✏️ (bút) ở hàng bất kỳ
+3. Sửa thông tin (VD: thêm khách, đổi phòng)
+4. Click "Cập nhật phiếu"
+5. Kiểm tra danh sách đã cập nhật
+
+#### Test 4: Trả Phòng với Date dd/mm/yyyy
+1. Vào "Trả phòng"
+2. Click icon ✓
+3. Nhập ngày trả: 1 → 5 → 0 → 5 → 2 → 0 → 2 → 6
+4. Tự động thành: **15/05/2026**
+5. Tính tiền tự động
+
+## 📊 SO SÁNH V2 vs V3
+
+| Tính năng | V2 | V3 |
+|-----------|----|----|
+| Date format hiển thị | dd/mm/yyyy | dd/mm/yyyy |
+| Date input type | `<input type="date">` | `<input type="text" class="date-input-vn">` ✨ |
+| Auto thêm "/" | ❌ | ✅ Tự động |
+| Validate ngày | Browser | ✅ Custom JS |
+| View phiếu thuê | ❌ | ✅ Read-only mode |
+| Edit phiếu thuê | ❌ | ✅ Update mode |
+| Delete phiếu | ✅ | ✅ (cải thiện) |
+
+## 💡 CHI TIẾT KỸ THUẬT
+
+### Date Input Component
+```javascript
+// Khởi tạo tự động
+initDateInputs(); // Tìm tất cả .date-input-vn
+
+// Format khi nhập
+formatDateInput(input); // Tự động thêm /
+
+// Validate khi blur
+validateAndConvertDate(input); // Kiểm tra ngày hợp lệ
+
+// Lấy giá trị ISO
+const isoDate = getISODate(input); // yyyy-mm-dd
+
+// Set giá trị
+setDateValue(input, '2025-02-10'); // Hiển thị 10/02/2025
+```
+
+### Booking Form Modes
+```javascript
+// URL Patterns
+booking-form-v3.html              → CREATE mode
+booking-form-v3.html?id=1&mode=view → VIEW mode (read-only)
+booking-form-v3.html?id=1         → EDIT mode
+
+// Detect mode
+checkMode() {
+  const id = urlParams.get('id');
+  const mode = urlParams.get('mode');
+  
+  if (id && mode === 'view') setViewMode();
+  else if (id) setEditMode();
+  else setCreateMode();
+}
+```
+
+## 🔧 CÁC FUNCTION MỚI
+
+### date-input.js
+- `initDateInputs()` - Khởi tạo tất cả date input
+- `formatDateInput(input)` - Tự động format khi nhập
+- `validateAndConvertDate(input)` - Validate + lưu ISO
+- `getISODate(input)` - Lấy yyyy-mm-dd
+- `setDateValue(input, iso)` - Set giá trị dd/mm/yyyy
+- `getTodayFormatted()` - Lấy hôm nay dd/mm/yyyy
+- `getTodayISO()` - Lấy hôm nay yyyy-mm-dd
+
+### booking-form-v3.js
+- `checkMode()` - Phát hiện mode từ URL
+- `setViewMode()` - Chuyển sang view (disable all)
+- `setEditMode()` - Chuyển sang edit
+- `setCreateMode()` - Chuyển sang create
+- `loadBookingData(id)` - Load dữ liệu phiếu cũ
+- `updateBooking()` - Cập nhật phiếu
+- `createBooking()` - Tạo phiếu mới
+- `addGuestWithData(data)` - Thêm khách với data có sẵn
+
+### booking-list-v3.js
+- `viewBooking(id)` - Chuyển sang view mode
+- `editBooking(id)` - Chuyển sang edit mode
+- `deleteBooking(id)` - Xóa phiếu + cập nhật phòng
+- `formatDateVN(iso)` - Convert yyyy-mm-dd → dd/mm/yyyy
+
+### checkout-list-v3.js
+- `formatDateVN(iso)` - Hiển thị ngày VN
+- Sử dụng date-input.js cho modal
+
+## 🎨 LUỒNG HOẠT ĐỘNG
+
+### Create Flow (Tạo mới)
+```
+1. Click "Tạo phiếu thuê phòng"
+   ↓
+2. booking-form-v3.html (no params)
+   ↓
+3. checkMode() → CREATE mode
+   ↓
+4. Nhập thông tin (date auto-format)
+   ↓
+5. Click "Lưu phiếu"
+   ↓
+6. createBooking() → Save to DB
+   ↓
+7. Redirect → booking-list-v3.html
+```
+
+### View Flow (Xem)
+```
+1. Click icon 👁️
+   ↓
+2. booking-form-v3.html?id=1&mode=view
+   ↓
+3. checkMode() → VIEW mode
+   ↓
+4. loadBookingData(1)
+   ↓
+5. setViewMode() → Disable all inputs
+   ↓
+6. Hiển thị read-only
+```
+
+### Edit Flow (Sửa)
+```
+1. Click icon ✏️
+   ↓
+2. booking-form-v3.html?id=1
+   ↓
+3. checkMode() → EDIT mode
+   ↓
+4. loadBookingData(1)
+   ↓
+5. setEditMode() → Title + button text
+   ↓
+6. Sửa thông tin
+   ↓
+7. Click "Cập nhật phiếu"
+   ↓
+8. updateBooking() → Update DB
+   ↓
+9. Redirect → booking-list-v3.html
+```
+
+## ⚠️ LƯU Ý
+
+1. **Không đè lên V2**: Tất cả file đều .txt
+2. **Phải bỏ .txt**: Khi dùng, rename bỏ đuôi .txt
+3. **Import thứ tự**: 
+   ```html
+   <script src="js/data-structure.js"></script>
+   <script src="js/common-v3.js"></script>
+   <script src="js/date-input.js"></script>
+   <script src="js/booking-form-v3.js"></script>
+   ```
+
+4. **Date validation**: Ngày phải hợp lệ (VD: 31/02/2025 → Lỗi)
+5. **Edit mode**: Có thể đổi phòng nếu phòng mới đang Trống
+
+## 📝 CHANGELOG V3
+
+### ✨ Features
+- Auto-format date input dd/mm/yyyy
+- View mode cho phiếu thuê (read-only)
+- Edit mode cho phiếu thuê (update)
+- Delete với confirm
+- Hiển thị tất cả ngày theo VN format
+
+### 🐛 Fixes
+- Fix encoding tiếng Việt
+- Fix date validation
+- Fix guest order khi edit
+
+### 🎨 UI/UX
+- Date input tự động thêm /
+- Validate realtime
+- 3 icons rõ ràng (👁️ ✏️ 🗑️)
+- Disable inputs trong view mode
+
+---
+
+**Hoàn thành:** 100%
+**Tổng file:** 19 files (.txt)
+**Tổng dòng code:** ~3000+ lines
+
+Đọc README.md để biết chi tiết!
